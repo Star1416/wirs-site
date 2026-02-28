@@ -1,0 +1,626 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0b1637, #0b173b);
+    color: #eaeaea;
+}
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 0;
+    background: rgba(6, 11, 27, 0.95);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    z-index: 1000;
+}
+
+.menu a {
+    color: #eaeaea;
+    margin: 0 22px;
+    font-size: 18px; /* letras maiores */
+    line-height: 1.5;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #3a86ff; /* mesma cor do hover */
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    color: #3a86ff;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    padding-top: 140px; /* compensar menu grande */
+    display: flex;
+    flex-direction: column; /* ISSO resolve o problema */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* LOGO */
+.logo {
+    width: 750px; /* AUMENTOU BASTANTE */
+    animation: logoFloat 4s ease-in-out infinite, logoFade 1.5s ease;
+    margin-top: 5px;;
+}
+
+
+/* SUBTITULO */
+.hero p {
+    margin-top: 5px;
+    margin: auto;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #9bbcff;
+    animation: fadeDown 2s ease;
+}
+
+/* SEÇÕES */
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
+    line-height: 1.5;
+    font-size: 18px;
+    text-align: justify;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* DESTAQUE */
+.maiorprojeto {
+    background: linear-gradient(145deg, #121c3a, #1c2541);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* BOTÃO */
+.botao {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #2759a9; /* mantém a cor */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 18px;
+    box-shadow: 0 8px 20px rgba(58,134,255,0.4);
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease;
+}
+
+/* HOVER — animação igual à do botão de referência */
+.botao:hover {
+    background-color: rgb(247, 247, 247);
+    color: #0b1637; /* melhora a leitura no fundo claro */
+    transform: scale(1.1);
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #050b1e;
+    color: #7a8fa6;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ANIMAÇÃO DE ENTRADA */
+@keyframes logoFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/*
+   EQUIPE – VISUAL PROFISSIONAL
+ */
+
+.equipe {
+    max-width: 1200px; /* aumenta o espaço horizontal */
+    margin: auto;
+    padding: 150px 15px 80px;
+}
+
+.equipe h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 34px;
+    letter-spacing: 2px;
+}
+
+/* FORÇA 4 COLUNAS */
+.equipe-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+/* CARD (MENOR) */
+.equipe-card {
+    background: linear-gradient(145deg, #121c3a, #1c2541);
+    border-radius: 16px;
+    padding: 25px 18px; /* diminui o card */
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: fadeUp 0.9s ease forwards;
+}
+
+.equipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(58,134,255,0.35);
+}
+
+/* AVATAR MENOR */
+.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1637;
+}
+
+.avatar::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #3a86ff, #00c6ff, #3a86ff);
+    animation: rotateBorder 4s linear infinite;
+    z-index: -1;
+}
+
+.avatar span {
+    font-size: 34px;
+    font-weight: bold;
+    color: #3a86ff;
+}
+
+/* TEXTO MAIS COMPACTO */
+.equipe-card h3 {
+    margin-bottom: 6px;
+    font-size: 19px;
+}
+
+.cargo {
+    font-size: 13px;
+    color: #9bbcff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.equipe-card p{
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* RESPONSIVO (não quebra mobile) */
+@media (max-width: 1024px) {
+    .equipe-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .equipe-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ANIMAÇÕES */
+@keyframes rotateBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* 
+   PROJETO INTERNACIONAL – TORRE DE PISA
+*/
+
+.projeto-pisa {
+    max-width: 1100px;
+    margin: auto;
+    padding: 160px 20px 90px;
+}
+
+.projeto-pisa h1 {
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.projeto-pisa .introducao {
+    text-align: center;
+    font-size: 18px;
+    color: #cfd8ff;
+    margin-bottom: 60px;
+}
+
+.pisa-bloco h2 {
+    color: #9bbcff;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+.pisa-bloco, .textofinal1, .textofinal2{
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.pisa-bloco ul {
+    padding-left: 20px;
+}
+
+.pisa-bloco ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+/* ANIMAÇÃO DE ENTRADA */
+.pisa-bloco, .introducao, .projeto-pisa, .international, .contato, .parceiros {
+    animation: fadeUp 1s ease forwards;
+}
+
+/*
+   IMAGENS – TORRE DE PISA
+*/
+
+.Torreinclinada,.Torrereta {
+    display: block;
+    width: 100%;
+    max-width: 480px;        /* tamanho agradável, sem exagero */
+    margin: 25px auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover sutil */
+.Torreinclinada:hover, .Torrereta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+
+/*
+   AJUSTE PARA MOBILE
+*/
+
+@media (max-width: 768px) {
+    .Torreinclinada,
+    .Torrereta {
+        max-width: 100%;
+    }
+}
+
+
+
+/*
+   INTERNATIONAL – ABA EXCLUSIVA
+*/
+
+.international {
+    max-width: 1000px;
+    margin: auto;
+    padding: 160px 20px 90px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* TÍTULO PRINCIPAL */
+.international h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    position: relative;
+}
+
+/* PARÁGRAFOS */
+.international p {
+    margin-bottom: 35px;
+    color: #d6ddff;
+    text-align: justify;
+}
+
+/* SUBTÍTULOS */
+.international h2 {
+    margin-top: 55px;
+    margin-bottom: 18px;
+    font-size: 26px;
+    color: #9bbcff;
+    letter-spacing: 1px;
+}
+
+/* LISTAS */
+.international ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 40px;
+}
+
+/* ITENS */
+.international ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 14px;
+    color: #eaeaea;
+    font-size: 17px;
+}
+
+/* MARCADOR MODERNO */
+.international ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3a86ff;
+    font-size: 18px;
+}
+
+/* BLOCO DE DESTAQUE FINAL */
+.international p:last-of-type {
+    background: linear-gradient(145deg, #121c3a, #1c2541);
+    padding: 28px 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-left: 4px solid #3a86ff;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .international {
+        padding: 140px 18px 70px;
+        font-size: 17px;
+    }
+
+    .international h1 {
+        font-size: 32px;
+    }
+
+    .international h2 {
+        font-size: 23px;
+    }
+}
+
+/* 
+   INTERNATIONAL – MAPA GLOBAL
+ */
+
+.international .mapa {
+    display: block;
+    max-width: 85%;              /* não fica gigante */
+    height: auto;                /* mantém proporção */
+    margin: 50px auto 60px;      /* espaço elegante em cima e embaixo */
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(58,134,255,0.15);
+    background: linear-gradient(145deg, #0f1b3a, #182654);
+    padding: 12px;               /* moldura discreta */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* LEGENDA DO MAPA */
+.mapa-container figcaption{
+    margin-top: auto;
+    font-size:14px;
+    color:#ffffff;
+    font-style:italic;
+    text-align: center;
+}
+
+/* EFEITO SUAVE AO PASSAR O MOUSE */
+.international .mapa:hover {
+    transform: scale(1.03);
+    box-shadow: 0 30px 60px rgba(58,134,255,0.35), 0 0 0 1px rgba(58,134,255,0.3);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .international .mapa {
+        max-width: 100%;
+        margin: 40px auto 50px;
+        padding: 8px;
+    }
+}
+
+
+
+/*              PARCEIROS         */
+.parceiros{
+    text-align: justify;
+    line-height: 1.5;
+    margin: auto;
+}
+
+.parceiros h1{
+    text-align:center;
+    margin:40px;
+    font-size:32px;
+}
+
+/* CONTAINER */
+
+.parceiros{
+    max-width:1000px;
+    margin:auto;
+}
+
+/* CARD PARCEIRO */
+
+.card-parceiro{
+    background:rgb(220, 199, 199);
+    padding:30px;
+    margin-bottom:40px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+/* LOGOS */
+
+.card-parceiro img{
+    width:120px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.card-parceiro img:hover{
+    transform:scale(1.1);
+}
+
+/* TITULO */
+
+.card-parceiro h3{
+    margin:10px 0;
+    color:#0b1d3a;
+}
+
+/* TEXTO */
+
+.card-parceiro p{
+    margin-bottom:20px;
+    color:#555;
+}
+
+/* BOTÃO */
+
+.btn-parceiro{
+    background:#0b1d3a;
+    color:white;
+    padding:10px 20px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-parceiro:hover{
+    background:#ffd700;
+    color:#0b1d3a;
+}
+
+
+/* CONTATO */
+
+.contato{
+    max-width:800px;
+    margin:auto;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.contato h1{
+    font-size:36px;
+    color:#ffffff;
+    margin-bottom:15px;
+    margin-top: 25px;
+}
+
+.descricao-contato{
+    color: white;
+    margin-bottom:40px;
+}
+
+/* INFORMAÇÕES */
+
+.info-contato{
+    font-size:18px;
+    line-height:35px;
+    margin-bottom:40px;
+}
+
+.info-contato strong{
+    color:#ffffff;
+}
+
+/* INTERNACIONAL */
+
+.internacional-contato h2{
+    color:#ffffff;
+    margin-bottom:10px;
+}
+
+.internacional-contato p{
+    color: white;
+    margin-bottom: 75px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0b1d3a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:80px;
+}
